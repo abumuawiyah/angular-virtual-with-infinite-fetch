@@ -1,0 +1,9 @@
+<h1>{{ name }}</h1>
+
+<ng-container *ngIf="infinite | async; let items">
+
+	<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" (scrolledIndexChange)="nextBatch($event, (items[items.length - 1].index))">
+		<div *cdkVirtualFor="let item of items; trackBy: trackByIdx" class="example-item">{{item}}</div>
+	</cdk-virtual-scroll-viewport>
+
+</ng-container>
